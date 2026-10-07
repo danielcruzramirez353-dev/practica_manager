@@ -1,22 +1,24 @@
 #include <stdio.h>
-typedef struct {
-    char nombre [30];
+
+typedef struct{
+    char nombre[30];
     int popularidad;
     int energia;
     int energia_max;
     int fans;
 }Idol;
 
-void mostrar(const Idol *idol) {
-    printf("Nombre: %s\n", idol->nombre);
-    printf("Popularidada: %d\n", idol->popularidad);
-    printf("Energia: %d/%d\n", idol->energia, idol->energia_max);
-    printf("Fans: %d\n", idol->fans);
-}
-int main() {
+int main(){
     Idol jennie = {"jennie", 50, 100, 100, 12000};
-
-    mostrar(&jennie);
-    return 0;
     
+    Idol *p = &jennie;
+    
+    printf("%d\n", jennie.fans);
+    printf("%d\n", (*p).fans);
+    printf("%d", p->fans);
+    
+    printf("%p\n", (void *)p);
+    printf("%p\n", (void *)&jennie);
+    
+    return 0;
 }
